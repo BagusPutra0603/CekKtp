@@ -8,7 +8,7 @@
 
 //import liraries
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, SafeAreaView, TextInput, Button, ScrollView, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, SafeAreaView, TextInput, Button, ScrollView, TouchableOpacity, ToastAndroid } from 'react-native';
 import axios from 'axios';
 
 
@@ -27,6 +27,7 @@ class App extends Component {
       kelurahan: '',
       provinsi: '',
       tempatlahir: '',
+      toast: '',
     };
   }
 
@@ -42,6 +43,7 @@ class App extends Component {
           kelurahan: res.data.data.namaKel,
           provinsi: res.data.data.namaPropinsi,
           tempatlahir: res.data.data.tempat_lahir,
+          toast: res.data.message
         })
 
       })
@@ -49,6 +51,14 @@ class App extends Component {
         // handle err
         // console.log(err)
       });
+
+    ToastAndroid.showWithGravityAndOffset(
+      this.state.toast,
+      ToastAndroid.LONG,
+      ToastAndroid.BOTTOM,
+      25,
+      50
+    );
 
   }
 
