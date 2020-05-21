@@ -18,7 +18,6 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      //contoh nik :'3276010603970003'
       inputnama: '',
       inputnik: 0,
       jeniskelamin: '',
